@@ -1,0 +1,33 @@
+# Standard library imports
+import logging
+import datetime
+
+
+LOG_FILE = 'log'
+
+def logger(func):
+    """ A decorator function that adds logging functionality 
+
+        If you decorate a function with @logger, whenever
+        you call this function, the call event will be logged
+        in a file.
+    """
+
+    logging.basicConfig(filename=LOG_FILE, level=logging.INFO)
+
+    def wrapper(*args, **kwargs):
+
+        date = datetime.datetime.today().strftime('%Y-%m-%d %H:%M')
+        info = ' [{}] {} ran with args: {}, and kwargs: {}'.format(str(date), func.__name__, args, kwargs)
+
+        logging.info(info)
+
+        return func(*args, **kwargs)
+
+    return wrapper
+
+
+# @logger
+# def test_func(param1, param2):
+#     print(param1, param2)
+# test_func('param1', 'param2')
