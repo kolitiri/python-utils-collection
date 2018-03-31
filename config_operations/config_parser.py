@@ -16,13 +16,21 @@ def get_list_cfg(config_file, section, config_item):
             config_item: The config item
 
         Returns:
-            config_item: A config item list
+            config_item: A list config item
     """
 
     config = configparser.ConfigParser()
     config.read(config_file)
 
-    config_item = config.get(section, config_item)
+    try:
+        config_item = config.get(section, config_item)
+    except configparser.NoSectionError:
+        print(section, 'section not found in', config_file)
+        sys.exit(0)
+    except configparser.NoOptionError:
+        print(config_item, 'item not found in', config_file)
+        sys.exit(0)
+
     # This is a string with comma separated items.
     # Convert to a list
     config_item = config_item.split(',')
@@ -43,17 +51,23 @@ def get_dict_cfg(config_file, section, config_item):
             config_item: The config item
 
         Returns:
-            config_item: A config item dictionary
+            config_item: A dictionary config item
     """
 
     config = configparser.ConfigParser()
     config.read(config_file)
 
     try:
-        config_item = ast.literal_eval(config.get(section, config_item))
+        config_item = config.get(section, config_item)
+    except configparser.NoSectionError:
+        print(section, 'section not found in', config_file)
+        sys.exit(0)
     except configparser.NoOptionError:
         print(config_item, 'item not found in', config_file)
         sys.exit(0)
+
+    # Convert the config item to a Python dictionary
+    config_item = ast.literal_eval(config_item)
 
     return config_item
 
@@ -71,13 +85,20 @@ def get_str_cfg(config_file, section, config_item):
             config_item: The config item
 
         Returns:
-            config_item: A config item string
+            config_item: A string config item
     """
 
     config = configparser.ConfigParser()
     config.read(config_file)
 
-    config_item = config.get(section, config_item)
+    try:
+        config_item = config.get(section, config_item)
+    except configparser.NoSectionError:
+        print(section, 'section not found in', config_file)
+        sys.exit(0)
+    except configparser.NoOptionError:
+        print(config_item, 'item not found in', config_file)
+        sys.exit(0)
 
     return config_item
 
