@@ -18,7 +18,6 @@ def get_list_cfg(config_file, section, config_item):
         Returns:
             config_item: A list config item
     """
-
     config = configparser.ConfigParser()
     config.read(config_file)
 
@@ -53,7 +52,6 @@ def get_dict_cfg(config_file, section, config_item):
         Returns:
             config_item: A dictionary config item
     """
-
     config = configparser.ConfigParser()
     config.read(config_file)
 
@@ -87,7 +85,6 @@ def get_str_cfg(config_file, section, config_item):
         Returns:
             config_item: A string config item
     """
-
     config = configparser.ConfigParser()
     config.read(config_file)
 

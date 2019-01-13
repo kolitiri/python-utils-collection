@@ -12,7 +12,6 @@ def logger(func):
         you call this function, the call event will be logged
         in a file.
     """
-
     logging.basicConfig(filename=LOG_FILE, level=logging.INFO)
 
     def wrapper(*args, **kwargs):

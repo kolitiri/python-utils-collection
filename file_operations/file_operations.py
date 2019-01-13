@@ -10,7 +10,6 @@ def get_files(directory):
         Yields:
             One by one the files under the directory tree
     """
-
     for root_dir, directories, files in os.walk(directory):
 
         # Ignore hidden files
@@ -29,7 +28,6 @@ def is_file_empty(file):
             True:  If file is empty
             False: If file is not empty
     """
-
     if os.stat(file).st_size > 0:
         return False
     else:
@@ -43,7 +41,6 @@ def get_md5_hash(filename):
         Returns:
             The MD5 checksum of the file
     """
-
     chunk_size = 65536
     hasher = hashlib.md5()
 
