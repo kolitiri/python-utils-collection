@@ -12,7 +12,13 @@ Just copy paste..
 
 ### Tips
 
-There quite a few print statements, mainly used to explain how the code works or point out the flow of execution.
+There are quite a few print statements, mainly used to explain how the code works or point out the flow of execution.
+
+### Acknowledgements
+
+This collections contains snippets obtained by the following sources:
+
+* Clean Code in Python, by Mariano Anaya
 
 ### Authors
 
