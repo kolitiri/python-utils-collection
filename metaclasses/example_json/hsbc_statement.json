@@ -1,0 +1,20 @@
+{
+    "correspondence": "HSBC Bank USA",
+    "accountName": "John Doe",
+    "accountNumber": "IDLBG431911934/2220123",
+    "openingBalance": 3000,
+    "transactions": [
+        {
+            "description": "Transfer from sort code 20-10-33",
+            "datetime": "2023-01-01: 14:06:00",
+            "details": "Credit",
+            "amount": 120
+        },
+        {
+            "description": "Payment to XYZ",
+            "datetime": "2023-01-02: 10:05:10",
+            "details": "Debit",
+            "amount": 15
+        }
+    ]
+}
